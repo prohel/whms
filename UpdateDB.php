@@ -1,5 +1,7 @@
 
 <?php
+ini_set('display_errors', 'On');
+error_reporting(E_ALL);
 //include 'db.php';
 $mysql_host="68.178.216.184";
 $mysql_user="clickerDB1";
@@ -7,6 +9,11 @@ $mysql_pass="Whms001!";
 $mysql_db="clickerDB1";
 global $mysql_link;
 $mysql_link = mysqli_connect($mysql_host, $mysql_user, $mysql_pass, $mysql_db);
+
+$sqlForm = "INSERT INTO rooms (count, usercode, admincode, created_at)
+      VALUES (9999, 1111, 22222, NOW())";
+mysqli_query($mysql_link,$sqlForm)
+//pushToDB($sqlForm);
 
 //Insert a new idea from the form in the index page
 if (mysqli_connect_errno())
@@ -100,7 +107,6 @@ function pushToDB($sql)
 {
 /*$sql = "INSERT INTO rooms (user_id, name, description, category_id, created_at)
   VALUES (1, '$ideaname', '$description', 1, NOW())"; */
-
   if (!mysqli_query($mysql_link,$sql))
     {
   die('Error: ' . mysqli_error($mysql_link));
