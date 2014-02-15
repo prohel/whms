@@ -37,15 +37,10 @@ div.createnew {
     margin-right:auto;
 }
 
-#questionTextBox {
+#questionAndAnswer {
 	 background-color:#009999;
    text-align:center;
 }
-
-#answerTextBox {
-   background-color:#009999;
-   text-align:center;
- }
 
 button {
 	border-radius:20px;
