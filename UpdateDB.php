@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
   // Get JSON string from js file  
   $jsonRequest = $_REQUEST["REQUEST"];
-  if ($jsonRequest !== "")
+  if ($jsonRequest != "")
   {
 
     // *** Save information from new poll***
