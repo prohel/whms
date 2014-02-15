@@ -2,7 +2,7 @@
 <?php
 //include 'db.php';
 $mysql_host="68.178.216.184";
-$mysql_user="clickerDB1@72.167.233.38";
+$mysql_user="clickerDB1";
 $mysql_pass="Whms001!";
 $mysql_db="clickerDB1";
 global $mysql_link;
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       for ($i = 0; $i < $digit; $i++) 
       {
         $qarray = $jsonRequest.questions;
-        $description = $qarray[$i].description;
+        $description = $qarray[$i].question;
         $choicea = $qarray[$i].choicea;
         $choiceb = $qarray[$i].choiceb;
         $choicec = $qarray[$i].choicec;
@@ -50,6 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $sqlQuestion = "INSERT INTO questions (room_id, description, choicea, choiceb, choicec, choiced, choicee, created_at)
         VALUES ('$roomID', '$description', '$choicea', '$choiceb', '$choicec', '$choiced', '$choicee', NOW())";;
         pushToDB($sqlQuestion);
+        $addPollResponse = array('ADMINID' => $admincode, 'USERID' => $usercode); 
+        echo json_encode($addPollResponse);
       }
       $addPollResponse = array('ADMINID' => $admincode, 'USERID' => $usercode); 
       echo json_encode($addPollResponse);
