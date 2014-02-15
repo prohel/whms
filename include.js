@@ -1,13 +1,17 @@
 
+var poll;
+var quesionNumber = 0;
+var questions = new Array();
 
 function storequestion() {
+var form = document.getElementById("question");
 var JSONObject = {
-  "":"John Johnson",
-  "street":"Oslo West 16", 
-  "age":33,
-  "phone":"555 1234567"};
-document.getElementsByTagName("jname").innerHTML=JSONObject.name;
-document.getElementById("jage").innerHTML=JSONObject.age;
-document.getElementById("jstreet").innerHTML=JSONObject.street;
-document.getElementById("jphone").innerHTML=JSONObject.phone;
+  "question": form.elements["Question"].value,
+  "choice a": form.elements["Answer A"].value, 
+  "choice b": form.elements["Answer B"].value,
+  "choice c": form.elements["Answer C"].value,
+  "choice d": form.elements["Answer D"].value,
+  "choice e": form.elements["Answer E"].value,
+};
+questions[questionNumber] = JSONObject;
 }
