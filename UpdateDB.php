@@ -50,6 +50,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $sqlQuestion = "INSERT INTO questions (room_id, description, choicea, choiceb, choicec, choiced, choicee, created_at)
         VALUES ('$roomID', '$description', '$choicea', '$choiceb', '$choicec', '$choiced', '$choicee', NOW())";;
         pushToDB($sqlQuestion);
+        $addPollResponse = array('ADMINID' => $admincode, 'USERID' => $usercode); 
+        echo json_encode($addPollResponse);
       }
       $addPollResponse = array('ADMINID' => $admincode, 'USERID' => $usercode); 
       
@@ -62,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   } else {
     // GIVE BACK ERROR
     $errorResponse = array('ERROR' => 'EMPTY REQUEST'); 
-    echo json_encode();
+    echo json_encode($errorResponse);
   }
 }
 
