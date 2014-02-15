@@ -2,7 +2,7 @@
 <?php
 //include 'db.php';
 $mysql_host="68.178.216.184";
-$mysql_user="clickerDB1@72.167.233.38";
+$mysql_user="clickerDB1";
 $mysql_pass="Whms001!";
 $mysql_db="clickerDB1";
 global $mysql_link;
