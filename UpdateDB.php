@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
   // Get JSON string from js file  
   $jsonRequest = $_REQUEST["REQUEST"];
-  if ($jsonRequest !== "")
+  if ($jsonRequest != "")
   {
 
     // *** Save information from new poll***
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         pushToDB($sqlQuestion);
       }
       $addPollResponse = array('ADMINID' => $admincode, 'USERID' => $usercode); 
-      
+      echo json_encode($addPollResponse);
     } else if ($jsonRequest.command == "USERPAGE")
     {
         // WILL COMPLETE CODE
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   } else {
     // GIVE BACK ERROR
     $errorResponse = array('ERROR' => 'EMPTY REQUEST'); 
-    echo json_encode();
+    echo json_encode($errorResponse);
   }
 }
 

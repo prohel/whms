@@ -7,11 +7,11 @@ function storequestion() {
 var form = document.getElementById("question");
 var JSONObject = {
   "question": form.elements["Question"].value,
-  "choice a": form.elements["Answer A"].value, 
-  "choice b": form.elements["Answer B"].value,
-  "choice c": form.elements["Answer C"].value,
-  "choice d": form.elements["Answer D"].value,
-  "choice e": form.elements["Answer E"].value
+  "choicea": form.elements["Answer A"].value, 
+  "choiceb": form.elements["Answer B"].value,
+  "choicec": form.elements["Answer C"].value,
+  "choiced": form.elements["Answer D"].value,
+  "choicee": form.elements["Answer E"].value
 };
 questions[questionNumber] = JSONObject;
 questionNumber+=1;
@@ -19,23 +19,24 @@ form.reset();
 }
 
 function sendToMarco() {
-storequestion();
-var JSONObject = {
-  "command":"ADDPOLL",
-  "count":questionNumber,
-  "questions":questions
-};
-var xmlhttp;
-  xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+  storequestion();
+  alert("stored");
+  var JSONObject = {
+    "command":"ADDPOLL",
+    "count":questionNumber,
+    "questions":questions
+  };
+  var xmlhttp;
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
     {
-    document.getElementById('').innerHTML=JSON.parse(xmlhttp.responseText); //need to print user code and admin code
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+        alert(JSON.parse(xmlhttp.responseText)); //need to print user code and admin code
+      }
     }
-  }
-  xmlhttp.open("POST","UpdateDB.php?REQUEST=" + JSONObject,true);
-  xmlhttp.send();
+    xmlhttp.open("POST","UpdateDB.php?REQUEST=" + JSONObject,true);
+    xmlhttp.send();
 };
 
 function createPollPage() {
