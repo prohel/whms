@@ -46,10 +46,10 @@ function createPollPage() {
     eventId.innerHTML = ''; //clear student div
 
     createNewId = document.getElementById('professor');//clear prof div and put in buttons
-    createNewId.innerHTML = '<button id="next" onclick="storequestion();createPollPage()">next</button><button id="finished" onclick="">I\'m done!</button>'; 
+    createNewId.innerHTML = '<button id="next" onclick="storequestion()">next</button><button id="finished" onclick="">I\'m done!</button>'; 
 
     qAndAId = document.getElementById('questionAndAnswer');
-    qAndAId.innerHTML = '<div id ="questionTextBox">Insert Question Text Here:<form id="question" onsubmit="return false;"><textarea name="Question" style="height:200px;width:40%"></textarea><br><br></div><div id="answerTextBox">A: <input type="text" name="Answer A"><br>B: <input type="text" name="Answer B"><br>C: <input type="text" name="Answer C"><br>D: <input type="text" name="Answer D"><br>E: <input type="text" name="Answer E"><br></form></div>'
+    qAndAId.innerHTML = '<div id ="questionAndAnswer">Insert Question Text Here:<form id="question" onsubmit="return false;"><textarea name="Question" style="height:200px;width:40%"></textarea><br><br>A: <input type="text" name="Answer A"><br>B: <input type="text" name="Answer B"><br>C: <input type="text" name="Answer C"><br>D: <input type="text" name="Answer D"><br>E: <input type="text" name="Answer E"><br></form></div>'
 
     // questionTextBoxId = document.getElementById('questionTextBox');
     // questionTextBoxId.innerHTML = 'Insert Question Text Here:<form id = "question" onsubmit="return false;"><textarea name="Question" style="height:200px;width:40%"></textarea><br><br>';
