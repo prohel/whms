@@ -16,30 +16,28 @@ var JSONObject = {
 questions[questionNumber] = JSONObject;
 questionNumber+=1;
 form.reset();
-};
+}
 
-function sendToMarco() {
-storequestion();
-for(int i = 1; i <= questionNumber; i++)
-var JSONObject = {
-  "command":"ADDPOLL",
-  "count":questionNumber,
-  "questions":questions
-};
-var xmlhttp;
-  xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange=function()
-  {
-  if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    {
-    document.getElementById('').innerHTML=JSON.parse(xmlhttp.responseText); //need to print user code and admin code
-    }
-  }
-  xmlhttp.open("POST","UpdateDB.php?REQUEST=" + JSONObject,true);
-  xmlhttp.send();
-};
-return false;
-};
+// function sendToMarco() {
+// storequestion();
+// for(int i = 1; i <= questionNumber; i++)
+// var JSONObject = {
+//   "command":"ADDPOLL",
+//   "count":questionNumber,
+//   "questions":questions
+// };
+// var xmlhttp;
+//   xmlhttp = new XMLHttpRequest();
+//   xmlhttp.onreadystatechange=function()
+//   {
+//   if (xmlhttp.readyState==4 && xmlhttp.status==200)
+//     {
+//     document.getElementById('').innerHTML=JSON.parse(xmlhttp.responseText); //need to print user code and admin code
+//     }
+//   }
+//   xmlhttp.open("POST","UpdateDB.php?REQUEST=" + JSONObject,true);
+//   xmlhttp.send();
+// }
 
 function createPollPage() {
     headingElement = document.getElementById('title'); //assign heading element
@@ -49,7 +47,7 @@ function createPollPage() {
     eventId.innerHTML = ''; //clear student div
 
     createNewId = document.getElementById('professor');//clear prof div and put in buttons
-    createNewId.innerHTML = '<button id="next" onclick="storequestion()">next</button><button id="finished" onclick="">I\'m done!</button>'; 
+    createNewId.innerHTML = '<button id="next" onclick="storequestion();createPollPage()">next</button><button id="finished" onclick="">I\'m done!</button>'; 
 
     questionTextBoxId = document.getElementById("questionTextBox");
     questionTextBoxId.innerHTML = 'Insert Question Text Here:<form id = "question" onsubmit="return false;"><textarea name="Question" style="height:200px;width:40%"></textarea><br><br>';
