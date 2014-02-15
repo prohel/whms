@@ -3,6 +3,10 @@ questionNumber = 0;
 questions = new Array();
 pollOpen = 'Open';
 answerACount = 0;
+answerBCount = 0;
+answerCCount = 0;
+answerDCount = 0;
+answerECount = 0;
 
 function storequestion() {
 var form = document.getElementById("question");
@@ -50,7 +54,7 @@ function createPollPage() {
     createNewId.innerHTML = '<button id="next" onclick="savedPopUp(); storequestion()">next</button><button id="finished" onclick="">I\'m done!</button>'; 
 
     qAndAId = document.getElementById('questionAndAnswer');
-    qAndAId.innerHTML = '<div id ="questionAndAnswer"><form id="question" onsubmit="return false;"><textarea name="Question" style="height:200px;width:80%"></textarea><br>Insert Question Text Here<br>A: <input type="text" name="Answer A"><br>B: <input type="text" name="Answer B"><br>C: <input type="text" name="Answer C"><br>D: <input type="text" name="Answer D"><br>E: <input type="text" name="Answer E"><br><br></form></div>'
+    qAndAId.innerHTML = '<div id ="questionAndAnswer"><form id="question" onsubmit="return false;"><br><textarea name="Question" style="height:200px;width:80%"></textarea><br>Insert Question Text Above<br><br>A: <input type="text" name="Answer A"><br>B: <input type="text" name="Answer B"><br>C: <input type="text" name="Answer C"><br>D: <input type="text" name="Answer D"><br>E: <input type="text" name="Answer E"><br><br></form></div>'
 
 
 }
@@ -69,6 +73,22 @@ function addOneToA() {
     answerACount++;
 } //call func when student presses A
 
+function addOneToB() {
+    answerBCount++;
+} //call func when student presses B
+
+function addOneToC() {
+    answerCCount++;
+} //call func when student presses C
+
+function addOneToD() {
+    answerDCount++;
+} //call func when student presses D
+
+function addOneToE() {
+    answerECount++;
+} //call func when student presses E
+
 
 /**
 *
@@ -77,9 +97,7 @@ function addOneToA() {
 
 function createStudentPage() {
 
-    eventID = document.getElementById('event_id')[0].value; //set to first word of box
-
-    alert(eventID);
+    eventID = document.getElementById('event_id').value; //set to first word of box
 
     if (eventID.charAt(0) == 'U') { //take them to the student page
         headingElement = document.getElementById('title'); //assign heading element
@@ -97,7 +115,7 @@ function createStudentPage() {
 
     else if (eventID.charAt(0) == 'A') { //take to admin view page
         headingElement = document.getElementById('title'); //assign heading element
-        headingElement.innerHTML = 'Question #' + questionNumber++; //change heading element
+        headingElement.innerHTML = 'Question #' + ++questionNumber; //change heading element
     
         eventId = document.getElementById('event');
         eventId.innerHTML = ''; //clear student div
@@ -105,14 +123,34 @@ function createStudentPage() {
         createNewId = document.getElementById('professor'); 
         createNewId.innerHTML = ''; //clear prof div
 
-        graphicalDisplayId = document.getElementById('event');
+        questionDisplayId = document.getElementById('event');
+        questionDisplayId.innerHTML = '<h3>this is the question that should appear. then students select multiple choice answers. where have you been?</h3><br><button name="resultsButton" type="button" onclick="showResults()" align="center">Show Results.</button>';
     }
 
     else {
-        alert('Not a valid code. Please try again.');
+        window.alert('Not a valid code. Please try again.');
     }
+  }
 
-   
+   function showResults() {
+        headingElement = document.getElementById('title'); //assign heading element
+        headingElement.innerHTML = 'Here Are the Results'; //change heading element
 
-}
+        eventId = document.getElementById('event');
+        eventId.innerHTML = ''; //clear student div
+
+        createNewId = document.getElementById('professor'); 
+        createNewId.innerHTML = ''; //clear prof div
+   }
+
+   function tabulateData() {
+      data = new Array();
+      data[0] = answerACount;
+      data[1] = answerBCount;
+      data[2] = answerCCount;
+      data[3] = answerDCount;
+      data[4] = answerECount;
+   }
+
+
 
