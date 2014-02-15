@@ -1,0 +1,30 @@
+h1 {
+	color:white;
+	font-family:calibri;
+	text-align:center;
+}
+
+body {
+	background-color:#999999;
+}
+
+td {
+  width:300px;
+  height:300px;
+  color:white;
+  font-size:20px;
+  border-radius:20px;
+  font-family:calibri;
+
+}
+
+td.hi {
+	 background-color:#009999;
+}
+
+button {
+	border-radius:20px;
+	width:20%;
+	height:10%;
+	font-size:16px;
+}

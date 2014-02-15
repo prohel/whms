@@ -1,0 +1,1 @@
+//javascript function that decides if poll is open
