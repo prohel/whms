@@ -20,7 +20,6 @@ form.reset();
 
 function sendToMarco() {
 storequestion();
-for(int i = 1; i <= questionNumber; i++)
 var JSONObject = {
   "command":"ADDPOLL",
   "count":questionNumber,
@@ -37,8 +36,6 @@ var xmlhttp;
   }
   xmlhttp.open("POST","UpdateDB.php?REQUEST=" + JSONObject,true);
   xmlhttp.send();
-};
-return false;
 };
 
 function createPollPage() {
