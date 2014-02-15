@@ -46,7 +46,7 @@ function createStudentPage() {
     createNewId.innerHTML = ''; //clear prof div
 
     answerOptionId = document.getElementById('event');
-    answerOptionId.innerHTML = '<h2>Answer the Question</h2><button name="A" type="button">A</button><br><button name="B" type="button">B</button> <br><button name="C" type="button">C</button> <br><button name="D" type="button">D</button> <br><button name="E" type="button">E</button> <br>';
+    answerOptionId.innerHTML = '<h2>Answer the Question</h2><button name="A" type="button">A</button><br><button name="B" type="button">B</button> <br><button name="C" type="button">C</button> <br><button name="D" type="button">D</button> <br><button name="E" type="button">E</button> <br><button onclick="storequestion()">next</button><button onclick="">I\'m done!</button>';
 
 
 }
