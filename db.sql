@@ -14,10 +14,8 @@ USE clicker;
 -- Table ideas
 CREATE TABLE rooms (
     id int  NOT NULL AUTO_INCREMENT,
-     varchar(255) NOT NULL,
     description text  NOT NULL,
     count int,
-    active tinyint,
     usercode int,
     admincode int,
     created_at timestamp,
@@ -29,7 +27,6 @@ CREATE TABLE questions (
     id int  NOT NULL AUTO_INCREMENT,
     room_id int  NOT NULL,
     description text NOT NULL,
-    active tinyint,
     choicea varchar(255) NOT NULL,
     choiceb varchar(255),
     choicec varchar(255),
