@@ -12,22 +12,30 @@ $username = $email = $ideaname = $description = NULL;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
+  // Get JSON string from js file  
   $jsonRequest = $_REQUEST["REQUEST"];
   if ($jsonRequest !== "")
   {
+    // Save information from new poll
     if ($jsonRequest.command == "ADDPOLL")
     {
       $count = $jsonRequest.count;
       $usercode = "U" . random_Alpha(4);
       $admincode = "A" . random_Alpha(4);
+
       // Build the SQL command string for room
       $sqlForm = "INSERT INTO rooms (count, usercode, admincode, created_at)
-  VALUES ('$count', '$usercode', '$admincode', NOW())";
+      VALUES ('$count', '$usercode', '$admincode', NOW())";
+      
+      // Create table for form
       pushToDB($sqlForm);
+      // Get ID from last insert
       $roomID = mysql_insert_id(); 
+
       // Build SQL string for each question
       for ($i = 0; $i < $digit; $i++) 
       {
+
         $description = $jsonRequest.questions[i].description;
         $choicea = $jsonRequest.questions[i].choicea;
         $choiceb = $jsonRequest.questions[i].choiceb;
@@ -35,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         $choiced = $jsonRequest.questions[i].choiced;
         $choicee = $jsonRequest.questions[i].choicee;
         $sqlQuestion = "INSERT INTO questions (room_id, description, choicea, choiceb, choicec, choiced, choicee, created_at)
-  VALUES ('$roomID', '$description', '$choicea', '$choiceb', '$choicec', '$choiced', '$choicee', NOW())";;
+        VALUES ('$roomID', '$description', '$choicea', '$choiceb', '$choicec', '$choiced', '$choicee', NOW())";;
         pushToDB($sqlQuestion);
       }
     else if ($jsonRequest.command == "ADDPOLL")
@@ -46,6 +54,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   }
 }
 
+/**
+ * Creates a random alphanumeric string
+ * of length specified
+ */
 function random_Alpha($digit){
   $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
   $string = '';
@@ -55,6 +67,9 @@ function random_Alpha($digit){
   return $string;
 }
 
+/**
+  * Tests data input (for phase II)
+  */
 function test_input($data)
 {
    $data = trim($data);
@@ -63,6 +78,10 @@ function test_input($data)
    return $data;
 }
 
+/**
+  * Pushes SQL request given string given and
+  * parameters in db.php
+  */
 function pushToDB($sql)
 {
 /*$sql = "INSERT INTO rooms (user_id, name, description, category_id, created_at)
