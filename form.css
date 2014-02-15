@@ -1,23 +1,24 @@
 
-body {
+
+/*body {
 	background-color:#999999;
   color:white;
   font-size:20px;
   border-radius:20px;
   font-family:calibri;
-}
+}*/
 
-h1 {
+/*h1 {
     color:white;
     font-family:"calibri";
     text-align:center;
     margin-left:auto;
     margin-right:auto;
-}
+}*/
 
-div.event {
+#event {
     /*background-color:#009999;*/
-    color:white;
+    color:black;
     font-family:"calibri";
     text-align:center;
     width:80%;
@@ -27,8 +28,8 @@ div.event {
     
 }
 
-div.createnew {
-    color:white;
+#createnew {
+    /*color:white;*/
     font-family:"calibri";
     text-align:center;
     width:80%;
@@ -40,6 +41,12 @@ div.createnew {
 #questionAndAnswer {
 	 background-color:#009999;
    text-align:center;
+   width:60%;
+   margin-left:auto;
+  margin-right:auto;
+  border-radius:20px;
+  border-color:black;
+  border-width:5px;
 }
 
 button {
