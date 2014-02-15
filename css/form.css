@@ -15,9 +15,12 @@ h1 {
     margin-right:auto;
 }
 
-div.event {
+h2 {
+  color:#000;
+}
+
+#event {
     /*background-color:#009999;*/
-    color:white;
     font-family:"calibri";
     text-align:center;
     width:80%;
