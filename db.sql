@@ -5,7 +5,8 @@
 -- Scope: [tables, references, sequences, views, procedures]
 -- Generated at Wed Jan 08 20:31:18 CET 2014
 
-DROP DATABASE IF EXISTS clicker;
+DROP Table IF EXISTS rooms;
+DROP Table IF EXISTS questions;
 CREATE DATABASE clicker;
 USE clicker;
 
