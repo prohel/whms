@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       for ($i = 0; $i < $digit; $i++) 
       {
         $qarray = $jsonRequest.questions;
-        $description = $qarray[$i].description;
+        $description = $qarray[$i].question;
         $choicea = $qarray[$i].choicea;
         $choiceb = $qarray[$i].choiceb;
         $choicec = $qarray[$i].choicec;
